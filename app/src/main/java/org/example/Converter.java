@@ -1,14 +1,14 @@
 package org.example;
 
 public class Converter {
-  // Write the code needed to make the tests in
-  // TestConverter.java pass. I have provided the
-  // tests for you in this lab to give you an example
-  // of how they should look. In the future, you will
-  // be responsible for writing your own tests.
-
-  // After you have written the code to make the tests
-  // pass, exercise your code in a driver function in
-  // App.java. This shows that your business logic can
-  // run in a console program.
+  public String toPounds (int ounces) {
+    double pounds = ounces / 16.0;
+    return String.format("%.4f %s", pounds, (Math.abs(pounds - 1.0) < 1e-9) ? "lb" : "lbs");
+  } // 4 decimal places
+  public String toPoundsAndOunces(int ounces) {
+    int lbs = ounces / 16;
+    int oz = ounces % 16;
+    String lbUnit = (lbs == 1) ? "lb" : "lbs";
+    return String.format("%d %s and %d oz", lbs, lbUnit, oz);
+  }
 }
